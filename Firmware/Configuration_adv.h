@@ -293,8 +293,15 @@
 #endif
 
 // Arc interpretation settings:
-#define MM_PER_ARC_SEGMENT 1
-#define N_ARC_CORRECTION 25
+#define MM_PER_ARC_SEGMENT 1.0f // The maximum length of an arc segment if a full circle of the same radius has more than MIN_ARC_SEGMENTS (if defined)
+#define N_ARC_CORRECTION 25 // The number of interpolated segments that will be generated without a floating point correction
+// 20200417 - FormerLurker - Add Additional Arc Config Values
+#define MIN_ARC_SEGMENTS 32 // The minimum segments in a full circle.  If not defined, MM_PER_ARC_SEMGMENT is enforced always
+#define MIN_MM_PER_ARC_SEGMENT 0.25f // the minimum length of an interpolated segment
+//#define ARC_EXTRUSION_CORRECTION // If defined, we should apply correction to the extrusion length based on the
+// difference in true arc length.  The correctly is extremely small, and may not be worth the cpu cycles
+
+
 
 const unsigned int dropsegments=5; //everything with less than this number of steps will be ignored as move and joined with the next movement
 
