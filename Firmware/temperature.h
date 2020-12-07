@@ -63,6 +63,7 @@ extern float current_temperature_bed;
 #ifdef PINDA_THERMISTOR
 extern uint16_t current_temperature_raw_pinda;
 extern float current_temperature_pinda;
+bool has_temperature_compensation();
 #endif
 
 #ifdef AMBIENT_THERMISTOR
@@ -272,6 +273,8 @@ void check_max_temp();
 
 #ifdef EXTRUDER_ALTFAN_DETECT
   extern bool extruder_altfan_detect();
+  extern void altfanOverride_toggle();
+  extern bool altfanOverride_get();
 #endif //EXTRUDER_ALTFAN_DETECT
 
 extern unsigned long extruder_autofan_last_check;
